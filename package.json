@@ -1,0 +1,42 @@
+{
+  "name": "sgx-map-website",
+  "version": "0.0.1",
+  "description": "A simple website for viewing a map of games at the Stout Game Expo.",
+  "main": "public/index.html",
+  "type": "module",
+  "scripts": {
+    "client": "esbuild --bundle --minify --target=es2020 --loader:.woff=dataurl --loader:.woff2=dataurl --define:_DEV_=false --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
+    "prodClient": "esbuild --bundle --watch --minify --servedir=public --serve=3000 --target=es2020 --loader:.woff=dataurl --loader:.woff2=dataurl --define:_DEV_=false --define:process.env.NODE_ENV=\\\"production\\\" --outfile=public/bundle.js client/app.jsx",
+    "devClient": "esbuild --bundle --watch --servedir=public --serve=3000 --sourcemap --target=es2020 --loader:.woff=dataurl --loader:.woff2=dataurl --define:_DEV_=true --define:process.env.NODE_ENV=\\\"development\\\" --outfile=public/bundle.js client/app.jsx",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UWStout/SGXMap.git"
+  },
+  "author": "Seth Berrier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UWStout/SGXMap/issues"
+  },
+  "homepage": "https://github.com/UWStout/SGXMap#readme",
+  "devDependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.0",
+    "esbuild": "^0.19.9",
+    "eslint": "^8.55.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.4.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "nodemon": "^3.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@fontsource/roboto": "^5.0.8",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
+}
